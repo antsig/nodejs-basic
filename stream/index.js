@@ -13,10 +13,9 @@ const writableStream = fs.createWriteStream('./stream/output.txt');
 
 readableStream.on('data', (chunk) => {
     try {
-        writableStream.write(chunk);
+        writableStream.write(chunk + '\n'); // Menambahkan '\n' setelah setiap bagian teks
     } catch(error) {
-        // Tangkap kesalahan jika ada masalah saat menulis
-        console.error(error);
+        console.error('Terjadi kesalahan saat menulis data:', error);
     }
 });
 
